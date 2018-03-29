@@ -1,1 +1,7 @@
 <h1>Home</h1>
+
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li> <%= tweet.text %> </li>
+    <% end %>
+</ul>

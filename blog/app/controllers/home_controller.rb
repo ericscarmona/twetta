@@ -1,5 +1,5 @@
 
-class TweetsController < ApplicationController
+class HomeController < ApplicationController
   
     before_action :create_client
   
