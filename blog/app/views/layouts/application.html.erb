@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
+  <h1>twetta</h1> 
+  
+  <%= form_tag({:controller => 'profile', :action => 'search'}) do %>
+    <%= text_field_tag(:handle) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+  
+  <%= yield %>
   </body>
 </html>
