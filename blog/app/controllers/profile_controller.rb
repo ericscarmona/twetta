@@ -8,14 +8,11 @@ class ProfileController < ApplicationController
       @tweets = @client.user_timeline(@twitter_handle).take(batch_size)    
       @friends = @client.friends(@twitter_handle).take(batch_size)
       @followers = @client.followers(@twitter_handle).take(batch_size)
-  
-      # if params[:search]
-      #   # @tweets = tweets.search(params[:search]).order("created_at DESC")
-      #   @twitter_handle = params[:search]
-      # # else
-      # #   # @tweets = @tweets.all.order("created_at DESC")
-      # #   @twitter_handle = "Casetabs"
-      # end
+      
+      @tweettext = []
+      @tweets.each do |tweet|
+        @tweettext.push(tweet.text.gsub(/@{1}\w+/) { |name| '<a href = "/'+'profile/' + name[1..-1] +'">'+ name + '</a>'})
+      end
     
     end
 

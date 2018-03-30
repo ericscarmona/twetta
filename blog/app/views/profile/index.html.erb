@@ -1,7 +1,10 @@
-<h2><%= @twiiter_handle %> </h2>
+<div class = "container">
+  <h2><%= @twitter_handle %> </h2>
 
-<ul>
-  <% @tweets.each do |tweet| %>
-    <li><%= tweet.user.name  %> <%=  tweet.text %> </li>
-    <% end %>
-</ul>
+  <ul>
+    <% @tweettext.each do |tweet| %>
+      <li><%== tweet %> </li>
+      
+      <% end %>
+  </ul>
+</div>

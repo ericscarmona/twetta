@@ -8,10 +8,14 @@ class HomeController < ApplicationController
       @twitter_handle = "Casetabs"
   
       @tweets = @client.user_timeline(@twitter_handle).take(batch_size)    
-      @friends = @client.friends(@twitter_handle).take(batch_size)
+      @friends = @client.friends(@twitter_handle)
       @followers = @client.followers(@twitter_handle).take(batch_size)
   
-      
+      @tweettext = []
+      @tweets.each do |tweet|
+        @tweettext.push(tweet.text.gsub(/@{1}\w+/) { |name| '<a href = "/'+'profile/' + name[1..-1] +'">'+ name + '</a>'})
+      end
+    
     
     end
 

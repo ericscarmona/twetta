@@ -3,20 +3,31 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <h1>twetta</h1> 
-  
-  <%= form_tag({:controller => 'profile', :action => 'search'}) do %>
-    <%= text_field_tag(:handle) %>
-    <%= submit_tag("Search") %>
-  <% end %>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class= "container">
+  <a class="navbar-brand" href="/"><h1>Twetta</h1></a>
   
+
+  <div class="float-right" id="navbarSupportedContent">
+    
+    
+      <%= form_tag({:controller => 'profile', :action => 'search'}, {:class => 'form-inline my-2 my-lg-0'}) do %>
+        <%= text_field_tag :handle, "", class: 'form-control mr-sm-2' %>
+        <%= submit_tag("Search", :class => "btn btn-outline-success my-2 my-sm-0") %>
+      <% end %>
+  </div>
+  </div>
+</nav>
+  
+
+
   <%= yield %>
   </body>
 </html>
